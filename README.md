@@ -1,8 +1,8 @@
 # ⚡ TrustPULSE X — Premium AI Reputation Intelligence Platform
 
-**🔴 Live Demo: [https://trustpulse.netlify.app](https://trustpulse.netlify.app)**
-
 TrustPULSE X is a production-grade, full-stack company reputation and review analytics platform. Powered by AI and NLP algorithms, it compiles, verifies, and benchmarks company reputations across multiple source domains to provide actionable sentiment dashboards.
+
+**🚀 Live Link:** [https://trustpulse.netlify.app](https://trustpulse.netlify.app)
 
 ---
 
