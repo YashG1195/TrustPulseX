@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import RadarComparisonChart from '../components/charts/RadarComparisonChart';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { companyAPI } from '../services/api';
 
 export default function ComparePage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -59,7 +60,7 @@ export default function ComparePage() {
     setLoading(true);
     try {
       const dataPromises = names.map(async (name) => {
-        const res = await axios.get(`http://localhost:5000/api/companies/${encodeURIComponent(name)}`);
+        const res = await companyAPI.getCompany(name);
         return res.data.data;
       });
       const resolved = await Promise.all(dataPromises);
@@ -124,9 +125,7 @@ export default function ComparePage() {
       setVerdictLoading(true);
       try {
         const companyNames = compareCompanies.map(c => c.name);
-        const res = await axios.post(`http://localhost:5000/api/companies/compare`, {
-          companies: companyNames
-        });
+        const res = await companyAPI.compare(companyNames);
         setAiVerdict(res.data.data.analysis || res.data.data.verdict || 'AI Verdict generated based on sentiment overlap and score benchmarking.');
       } catch (err) {
         setAiVerdict('AI Verdict: Strong alignment across salary and benefits, with distinct cultural strengths for each option. Both represents excellent employee choices.');
