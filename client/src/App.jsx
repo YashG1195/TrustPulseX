@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
